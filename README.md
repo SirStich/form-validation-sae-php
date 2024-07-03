@@ -6,6 +6,10 @@ For easier usage, we can use Makefile to run our scripts for us.(`Makefile` cont
 - show running containers for this project `make list`
 - autoload composer `make autoload`
 ##  Installation Guide (Required)
+#### Dev Env
+1. `make dev` this will create docker container 'app' and 'server'. (Nginx Caching Disabled) during development.
+2. Follow rest steps from point 2 onwards.
+#### Or regular setup
 1. `make build` this will create the docker container app and server.
 2. `make install` this will install the vendor folder into our Container (can't install it directly from Dockerfile. Idk why.).
 3. (Optional) `make interact` go inside the docker `app` container.

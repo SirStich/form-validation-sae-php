@@ -32,32 +32,6 @@ RUN if [ ! -f composer.json ]; then \
     --license="MIT"; \
     fi
 
-# Install dependencies
-# RUN composer install --no-dev --optimize-autoloader
-
-# Create a non-root user and switch to it (Optional, based on your Docker setup)
-#RUN adduser --disabled-password --gecos '' myuser
-#USER myuser
-
-# Check if composer.json exists and install dependencies
-#RUN if [ -f /var/www/composer.json ]; then \
-#    composer install --no-interaction --no-plugins --no-scripts --no-dev --prefer-dist; \
-#    fi
-#
-# Install dependencies
-#RUN composer install \
-#    --no-interaction \
-#    --no-plugins \
-#    --no-scripts \
-#    --no-dev \
-#    --prefer-dist \
-#    -vvv
-
-#RUN composer install
-
-## Install Composer dependencies if composer.json exists
-#RUN if [ -f composer.json ]; then composer install --no-interaction --no-plugins --no-scripts --no-dev --prefer-dist; fi
-
 
 # Debugging step: List files to ensure composer.json is present
 RUN ls -la /var/www

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+#      dockerfile: docker/Dockerfile # use this when docker-compose file is in the docker directory.
+    container_name: form-validation-app
+    restart: always
+    working_dir: /var/www/
+    volumes:
+      - ./src:/var/www
+#      - ../src:/var/www # path when the docker-compose file is in the docker directory
+
+  nginx:
+    image: nginx:alpine3.19
+    container_name: form-validation-nginx
+    restart: always
+    ports:
+      - "8000:80"
+    volumes:
+#      - ../src:/var/www # same here
+      - ./src:/var/www
+      # in this nginx conf, is caching disabled.
+      - ./docker/devConfig:/etc/nginx/conf.d
+#      - ./nginx:/etc/nginx/conf.d
